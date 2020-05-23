@@ -8,6 +8,7 @@ import logging
 import os
 import subprocess
 import xxhash
+import Levenshtein
 
 logging.basicConfig(
     level = logging.INFO,
@@ -82,10 +83,15 @@ class MetadataLinter(Action):
             self.logger.error(f'detect whitespace in metadata on {item}')
             raise RuntimeError('metadata format check failed')
 
-        if item.title in self.music_artist and item.artist != self.music_artist[item.title]:
-            self.logger.error(f'detect inconsistent relationship on {item.title}')
-            raise RuntimeError('metadata relationship check failed')
+        if item.title in self.music_artist:
+            if item.artist != self.music_artist[item.title]:
+                self.logger.error(f'detect inconsistent relationship on {item.title}')
+                raise RuntimeError('metadata relationship check failed')
         else:
+            for t in self.music_artist.keys():
+                if Levenshtein.ratio(t, item.title) > 0.75:
+                    self.logger.warning(f'detect similar title on {t} and {item.title}')
+
             self.music_artist[item.title] = item.artist
 
 class YoutubeClipper(Action):
