@@ -109,7 +109,7 @@ class YoutubeClipper(Action):
             self.logger.info(f'download {source_path}')
             cmd = [
                 '/usr/local/bin/youtube-dl',
-                '-f', self.format_code,
+                '-f', str(self.format_code),
                 '-o', str(source_path),
                 f'https://www.youtube.com/watch?v={item.video_id}',
             ]
