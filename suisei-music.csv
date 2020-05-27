@@ -1,8 +1,23 @@
 date,video_type,video_id,clip_start,clip_end,done,hide,title,artist,performer
 2020-03-27,BILIBILI,BV1N7411y7hn,,,FALSE,FALSE,,,
 2020-01-31,BILIBILI,BV1U7411s7X1,,,FALSE,FALSE,,,
+2020-03-15,TWITTER,1239146084712083456,,,TRUE,FALSE,砂上ノ楼閣,Valkyrie,"星街すいせい,戌亥とこ"
+2020-01-21,TWITTER,1219555640936292352,,,TRUE,FALSE,冬空プレシャス,CINDERELLA PROJECT,星街すいせい
+2020-01-02,TWITTER,1212685216814231552,,,TRUE,FALSE,祭夜絵巻,紅月,星街すいせい
+2019-12-27,TWITTER,1210474131143053312,,,TRUE,FALSE,La La Meltic StAr,メルティックスター,星街すいせい
+2019-12-20,TWITTER,1207981423530930176,,,TRUE,FALSE,Neo sanctuary,fine,星街すいせい
+2019-12-14,TWITTER,1205879960319119360,,,TRUE,FALSE,少年少女モラトリアムサヴァイヴ,西沢さんP,星街すいせい
+2019-12-13,TWITTER,1205493315048628229,,,TRUE,FALSE,礼賛歌,Valkyrie,星街すいせい
 2019-06-22,TWITTER,1142404825310584834,,,TRUE,FALSE,Leia,ゆよゆっぺ,星街すいせい
 2019-06-04,TWITTER,1136032336414330880,,,TRUE,FALSE,夢町コントラスト,電ポルP,星街すいせい
+2018-12-17,TWITTER,1074663664785846272,,,TRUE,FALSE,te-yut-te,フェイP,星街すいせい
+2018-10-31,TWITTER,1057604960324440065,,,TRUE,FALSE,Mrs.Pumpkinの滑稽な夢,ハチP,星街すいせい
+2018-06-05,TWITTER,1003984348478038016,,,TRUE,FALSE,月のワルツ,諫山実生,星街すいせい
+2018-06-04,TWITTER,1003370784474034177,,,TRUE,FALSE,変わらないもの,奥華子,星街すいせい
+2018-04-24,TWITTER,988775240766439424,,,TRUE,FALSE,気づかないうちにアホガールOPがファフナーになる,fukkun,星街すいせい
+2018-04-23,TWITTER,988438549312647168,,,TRUE,FALSE,Shangri-La,angela,星街すいせい
+2018-03-27,TWITTER,978601113791299585,,,TRUE,FALSE,Starduster,ジミーサムP,星街すいせい
+2020-05-27,YOUTUBE,-wNSFmqhQsU,,,TRUE,FALSE,佐賀事変,フランシュシュ,"星街すいせい,兎田ぺこら,不知火フレア,白銀ノエル,宝鐘マリン,潤羽るしあ"
 2020-05-08,YOUTUBE,2i5T7dzYJBw,91.4,404.2,TRUE,FALSE,名前のない怪物,EGOIST,星街すいせい
 2020-05-08,YOUTUBE,2i5T7dzYJBw,572.4,805.4,TRUE,FALSE,丸の内サディスティック,椎名林檎,星街すいせい
 2020-05-08,YOUTUBE,2i5T7dzYJBw,816.5,996.9,TRUE,FALSE,公然の秘密,椎名林檎,星街すいせい
@@ -21,6 +36,7 @@ date,video_type,video_id,clip_start,clip_end,done,hide,title,artist,performer
 2020-05-04,YOUTUBE,KjEAw24LTdc,1196.7,1412.7,TRUE,FALSE,敗北の少年,kemu,星街すいせい
 2020-05-04,YOUTUBE,KjEAw24LTdc,1457.6,1678.6,TRUE,FALSE,ロキ,みきとP,星街すいせい
 2020-05-04,YOUTUBE,KjEAw24LTdc,1860.2,2055.8,TRUE,FALSE,ベノム,かいりきベア,星街すいせい
+2020-04-30,YOUTUBE,Rc9TP9qfUFk,,,TRUE,FALSE,スタンドバイミー,the peggies,星街すいせい
 2020-04-21,YOUTUBE,Nc3KBd5eCrI,118.3,341.2,TRUE,FALSE,いのちの名前,木村弓,星街すいせい
 2020-04-21,YOUTUBE,Nc3KBd5eCrI,366.4,685.5,TRUE,FALSE,"rain stops, good-bye",におP,星街すいせい
 2020-04-21,YOUTUBE,Nc3KBd5eCrI,743.5,1010.2,TRUE,FALSE,夕立のりぼん,みきとP,星街すいせい
@@ -55,6 +71,7 @@ date,video_type,video_id,clip_start,clip_end,done,hide,title,artist,performer
 2020-04-04,YOUTUBE,IRr6aAS3zLQ,2608.5,2842.9,TRUE,FALSE,愛を伝えたいだとか,あいみょん,星街すいせい
 2020-04-04,YOUTUBE,IRr6aAS3zLQ,2901.4,3120.1,TRUE,FALSE,Knights the Phantom Thief,Knights,星街すいせい
 2020-04-04,YOUTUBE,IRr6aAS3zLQ,3179.8,3422.0,TRUE,FALSE,だから僕は音楽を辞めた,ヨルシカ,星街すいせい
+2020-03-30,YOUTUBE,19f2skdHhcE,,,TRUE,FALSE,エンゼルフィッシュ,パトリチェフ,"星街すいせい,天音かなた"
 2020-03-24,YOUTUBE,NZ4bo5Wy3v4,158.2,417.3,TRUE,FALSE,理想論,におP,星街すいせい
 2020-03-24,YOUTUBE,NZ4bo5Wy3v4,429.0,590.2,TRUE,FALSE,再生,におP,星街すいせい
 2020-03-24,YOUTUBE,NZ4bo5Wy3v4,615.0,829.8,TRUE,FALSE,深海のリトルクライ,ささくれP,星街すいせい
@@ -122,4 +139,25 @@ date,video_type,video_id,clip_start,clip_end,done,hide,title,artist,performer
 2019-12-29,YOUTUBE,_PpTrPbRg0U,,,TRUE,FALSE,コワレヤスキ,Guilty Kiss,"出雲霞,星街すいせい,堰代ミコ"
 2019-12-01,YOUTUBE,EkBM9U51RSs,446.7,556.2,TRUE,FALSE,ガールズ・イン・ザ・フロンティア,設楽哲也,星街すいせい
 2019-12-01,YOUTUBE,EkBM9U51RSs,2724.9,3066.2,TRUE,FALSE,君の知らない物語,supercell,星街すいせい
-2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,,,
+2019-11-11,YOUTUBE,dPTeBvVJ_xY,,,TRUE,FALSE,覚醒,superfly,星街すいせい
+2019-03-22,YOUTUBE,zLak0dxBKpM,,,TRUE,FALSE,天球、彗星は夜を跨いで,星街すいせい,星街すいせい
+2019-02-13,YOUTUBE,WLj0Rg_bcvQ,,,TRUE,FALSE,Shine!!,CINDERELLA PROJECT,星街すいせい
+2019-02-13,YOUTUBE,-uQ4bc7otx8,,,TRUE,FALSE,バレンタイン・キッス,国生さゆり,"久遠藍,星街すいせい,黒羽満月,ルピナス・ナイトリー"
+2018-12-26,YOUTUBE,X1T9M4F8sKk,,,TRUE,FALSE,劣等上等,Giga,"ルピナス・ナイトリー,星街すいせい"
+2018-12-24,YOUTUBE,9pgap38Os_k,,,TRUE,FALSE,melty world,キズナアイ,星街すいせい
+2018-11-22,YOUTUBE,3cqV5BKJHyk,,,TRUE,FALSE,comet,星街すいせい,星街すいせい
+2018-09-24,YOUTUBE,_8eUrkYNnLY,,,TRUE,FALSE,創聖のアクエリオン,AKINO,星街すいせい
+2018-08-12,YOUTUBE,PerzMoTou-k,,,TRUE,FALSE,ブルーバード,いきものがかり,星街すいせい
+2018-04-30,YOUTUBE,sm4KMKurd8E,,,TRUE,FALSE,メルティランドナイトメア,はるまきごはん,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,逆光,坂本真綾,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,タイム・リミット,宇多田ヒカル,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,光,宇多田ヒカル,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,深い森,Do As Infinity,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,行くぜっ!怪盗少女,ももいろクローバー,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,GENIE,少女時代,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,シザーハンズ,Nem,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,炉心融解,iroha,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,きらきら武士,レキシ,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,NIPPON,椎名林檎,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,シュガーソングとビターステップ,UNISON SQUARE GARDEN,星街すいせい
+2020-02-08,YOUTUBE,SkUeNL2SLus,,,FALSE,FALSE,逆光,坂本真綾,星街すいせい
