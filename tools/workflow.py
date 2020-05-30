@@ -24,7 +24,7 @@ class Music(object):
         'clip_start',
         'clip_end',
         'done',
-        'hide',
+        'status',
         'title',
         'artist',
         'performer',
@@ -38,7 +38,7 @@ class Music(object):
         self.clip_start = item['clip_start']
         self.clip_end = item['clip_end']
         self.done = item['done'] == 'TRUE'
-        self.hide = item['hide'] == 'TRUE'
+        self.status = item['status']
         self.title = item['title']
         self.artist = item['artist']
         self.performer = item['performer']
@@ -124,7 +124,7 @@ class VideoClipper(Action):
         return item.video_type == self.video_type
 
     def effect(self, item):
-        source_path = self.source_dir / f'{item.video_id}.{self.format_code}.{self.source_ext}'
+        source_path = self.source_dir / f'{item.video_id}.{self.source_ext}'
         output_path = self.output_dir / f'{item.hash}.{self.output_ext}'
 
         if not source_path.exists():
@@ -164,9 +164,9 @@ def main():
     TypoCheck(lambda x: x.artist.split(',')).process(items)
     TypoCheck(lambda x: x.performer.split(',')).process(items)
 
-    VideoClipper('YOUTUBE', 'https://www.youtube.com/watch?v={}', '140', 'mp4', 'm4a').process(items)
-    VideoClipper('TWITTER', 'https://www.twitter.com/i/status/{}', 'http-2176', 'mp4', 'm4a').process(items)
-    VideoClipper('BILIBILI', 'https://www.bilibili.com/video/{}', '0', 'flv', 'm4a').process(items)
+    VideoClipper('YOUTUBE', 'https://www.youtube.com/watch?v={}', 'bestaudio[ext=m4a]', 'mp4', 'm4a').process(items)
+    VideoClipper('TWITTER', 'https://www.twitter.com/i/status/{}', 'best[ext=mp4]', 'mp4', 'm4a').process(items)
+    VideoClipper('BILIBILI', 'https://www.bilibili.com/video/{}', 'best[ext=flv]', 'flv', 'm4a').process(items)
 
 if __name__ == '__main__':
     main()
