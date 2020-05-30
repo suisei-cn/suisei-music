@@ -12,7 +12,7 @@ A project collecting all music performed by [Hoshimati Suisei](https://www.holol
 - `clip_start`: The timing when clip start in seconds with 0.2s padding
 - `clip_end`: The timing when clip end in seconds with 0.2s padding
 - `done`: Indicate if this row is completed
-- `status`: 0=normal, 1=cute, 2=banned, 4=paid
+- `status`: 0=normal, 1=cute, 2=banned, 4=member
 - `title`: The title of the song
 - `artist`: The original artist of the song
 - `performer`: The performer of the song
