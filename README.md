@@ -11,8 +11,7 @@ A project collecting all music performed by [Hoshimati Suisei](https://www.holol
 - `video_id`: Video id for website
 - `clip_start`: The timing when clip start in seconds with 0.2s padding
 - `clip_end`: The timing when clip end in seconds with 0.2s padding
-- `done`: Indicate if this row is completed
-- `status`: `BANNED` or silent content, `MEMBER` only content
+- `status`: Bitflags, 0x1 acappella, 0x2 member, 0x4 banned
 - `title`: The title of the song
 - `artist`: The original artist of the song
 - `performer`: The performer of the song

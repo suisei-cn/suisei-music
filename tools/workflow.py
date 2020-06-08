@@ -23,7 +23,6 @@ class Music(object):
         'video_id',
         'clip_start',
         'clip_end',
-        'done',
         'status',
         'title',
         'artist',
@@ -37,7 +36,6 @@ class Music(object):
         self.video_id = item['video_id']
         self.clip_start = item['clip_start']
         self.clip_end = item['clip_end']
-        self.done = item['done'] == 'TRUE'
         self.status = item['status']
         self.title = item['title']
         self.artist = item['artist']
@@ -87,7 +85,7 @@ class MetadataLinter(Action):
 
         if item.title in self.music_artist:
             if item.artist != self.music_artist[item.title]:
-                self.logger.error(f'detect inconsistent relationship on {item.title}')
+                self.logger.warning(f'detect inconsistent relationship on {item.title}')
         else:
             self.music_artist[item.title] = item.artist
 
@@ -136,7 +134,7 @@ class VideoClipper(Action):
             ]
             subprocess.run(cmd, check=True, capture_output=True)
 
-        if item.done and not output_path.exists():
+        if item.status and not output_path.exists():
             self.logger.info(f'clip {output_path} for {item}')
             cmd = [
                 'ffmpeg',
@@ -166,6 +164,14 @@ def main():
     VideoClipper('YOUTUBE', 'https://www.youtube.com/watch?v={}', 'bestaudio[ext=m4a]', 'mp4', 'm4a').process(items)
     VideoClipper('TWITTER', 'https://www.twitter.com/i/status/{}', 'best[ext=mp4]', 'mp4', 'm4a').process(items)
     VideoClipper('BILIBILI', 'https://www.bilibili.com/video/{}', 'best[ext=flv]', 'flv', 'm4a').process(items)
+
+    for i in items:
+        print(f'{i.hash} -- {i.video_id} -- {i.title} -- {i.artist}')
+
+    result = [i.hash for i in items]
+    for i in Path(os.getenv('OUTPUT_DIR')).iterdir():
+        if i.stem not in result:
+            print(i)
 
 if __name__ == '__main__':
     main()
