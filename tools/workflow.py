@@ -7,6 +7,7 @@ import csv
 import logging
 import os
 import subprocess
+import json
 import xxhash
 import Levenshtein
 
@@ -115,7 +116,7 @@ class VideoClipper(Action):
         self.source_ext = source_ext
         self.output_ext = output_ext
         self.source_dir = Path(os.getenv('SOURCE_DIR'))
-        self.output_dir = Path(os.getenv('OUTPUT_DIR'))
+        self.output_dir = Path(os.getenv('OUTPUT_DIR')) / 'music'
 
     def filter(self, item):
         return item.video_type == self.video_type
@@ -151,6 +152,28 @@ class VideoClipper(Action):
             cmd.append(str(output_path))
             subprocess.run(cmd, check=True, capture_output=True)
 
+class JsonFormatter(Action):
+    def __init__(self):
+        super().__init__()
+        self.output_dir = Path(os.getenv('OUTPUT_DIR'))
+
+    def process(self, items):
+        p = filter(lambda x: x.status in ['0', '1', '4'], items)
+        p = sorted(p, key=lambda x: (x.date, x.clip_start))
+        p = [ {
+            'url': f'https://suisei-music.darknode.workers.dev/music/{i.hash}.m4a',
+            'date': i.date,
+            'title': i.title,
+            'artist': i.artist,
+        } for i in p ]
+
+        (self.output_dir / 'meta.json').write_text(json.dumps(p, ensure_ascii=False, indent=2))
+
+        result = [i.hash for i in items]
+        for i in (self.output_dir / 'music').iterdir():
+            if i.stem not in result:
+                print(f'outdated file {i}')
+
 def main():
     with open('../suisei-music.csv') as f:
         items = frozenset(map(Music, csv.DictReader(f)))
@@ -165,13 +188,7 @@ def main():
     VideoClipper('TWITTER', 'https://www.twitter.com/i/status/{}', 'best[ext=mp4]', 'mp4', 'm4a').process(items)
     VideoClipper('BILIBILI', 'https://www.bilibili.com/video/{}', 'best[ext=flv]', 'flv', 'm4a').process(items)
 
-    for i in items:
-        print(f'{i.hash} -- {i.video_id} -- {i.title} -- {i.artist}')
-
-    result = [i.hash for i in items]
-    for i in Path(os.getenv('OUTPUT_DIR')).iterdir():
-        if i.stem not in result:
-            print(i)
+    JsonFormatter().process(list(items))
 
 if __name__ == '__main__':
     main()
