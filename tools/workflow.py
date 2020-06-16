@@ -19,7 +19,7 @@ load_dotenv()
 
 class Music(object):
     __slots__ = [
-        'date',
+        'datetime',
         'video_type',
         'video_id',
         'clip_start',
@@ -32,7 +32,7 @@ class Music(object):
     ]
 
     def __init__(self, item):
-        self.date = item['date']
+        self.datetime = item['datetime']
         self.video_type = item['video_type']
         self.video_id = item['video_id']
         self.clip_start = item['clip_start']
@@ -159,10 +159,10 @@ class JsonFormatter(Action):
 
     def process(self, items):
         p = filter(lambda x: x.status in ['0', '1', '4'], items)
-        p = sorted(p, key=lambda x: (x.date, x.clip_start))
+        p = sorted(p, key=lambda x: (x.datetime, x.clip_start))
         p = [ {
             'url': f'https://suisei-music.darknode.workers.dev/music/{i.hash}.m4a',
-            'date': i.date,
+            'datetime': i.datetime,
             'title': i.title,
             'artist': i.artist,
         } for i in p ]
