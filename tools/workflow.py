@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from pathlib import Path
 import csv
@@ -152,31 +153,59 @@ class VideoClipper(Action):
             cmd.append(str(output_path))
             subprocess.run(cmd, check=True, capture_output=True)
 
-class JsonFormatter(Action):
+class JsonRender(Action):
+    def __init__(self, url_template):
+        super().__init__()
+        self.output_dir = Path(os.getenv('OUTPUT_DIR'))
+        self.url_template = url_template
+
+    def process(self, items):
+        items = filter(lambda x: x.status, items)
+        items = filter(lambda x: int(x.status) & 0xA == 0, items)
+
+        result = []
+
+        for item in items:
+            pubdate = timedelta(seconds=int(float(item.clip_start)) if item.clip_start else 0)
+            pubdate = datetime.fromisoformat(item.datetime) + pubdate
+            pubdate = pubdate.isoformat()
+
+            source = {
+                'YOUTUBE': 'https://youtu.be/{}',
+                'TWITTER': 'https://www.twitter.com/i/status/{}',
+                'BILIBILI': 'https://www.bilibili.com/video/{}',
+            }[item.video_type].format(item.video_id)
+
+            if item.clip_start:
+                source += f'?t={int(float(item.clip_start))}'
+
+            result.append({
+                'url': self.url_template.format(item.hash),
+                'datetime': pubdate,
+                'title': item.title,
+                'artist': item.artist,
+                'performer': item.performer,
+                'status': int(item.status),
+                'source': source,
+            })
+
+        (self.output_dir / 'meta.json').write_text(json.dumps(result, ensure_ascii=False, indent=2))
+
+class TrashCheck(Action):
     def __init__(self):
         super().__init__()
         self.output_dir = Path(os.getenv('OUTPUT_DIR'))
 
     def process(self, items):
-        p = filter(lambda x: x.status in ['0', '1', '4'], items)
-        p = sorted(p, key=lambda x: (x.datetime, x.clip_start))
-        p = [ {
-            'url': f'https://suisei-music.darknode.workers.dev/music/{i.hash}.m4a',
-            'datetime': i.datetime,
-            'title': i.title,
-            'artist': i.artist,
-        } for i in p ]
-
-        (self.output_dir / 'meta.json').write_text(json.dumps(p, ensure_ascii=False, indent=2))
-
-        result = [i.hash for i in items]
+        result = set(map(lambda x: x.hash, items))
         for i in (self.output_dir / 'music').iterdir():
             if i.stem not in result:
                 print(f'outdated file {i}')
 
 def main():
     with open('../suisei-music.csv') as f:
-        items = frozenset(map(Music, csv.DictReader(f)))
+        items = map(Music, csv.DictReader(f))
+        items = sorted(items, key=lambda x: (x.datetime, x.clip_start))
 
     MetadataLinter().process(items)
 
@@ -188,7 +217,9 @@ def main():
     VideoClipper('TWITTER', 'https://www.twitter.com/i/status/{}', 'best[ext=mp4]', 'mp4', 'm4a').process(items)
     VideoClipper('BILIBILI', 'https://www.bilibili.com/video/{}', 'best[ext=flv]', 'flv', 'm4a').process(items)
 
-    JsonFormatter().process(list(items))
+    JsonRender('https://suisei.moe/music/{}.m4a').process(list(items))
+
+    TrashCheck().process(items)
 
 if __name__ == '__main__':
     main()
