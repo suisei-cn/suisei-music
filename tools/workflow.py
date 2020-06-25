@@ -190,6 +190,7 @@ class JsonRender(Action):
             })
 
         (self.output_dir / 'meta.json').write_text(json.dumps(result, ensure_ascii=False, indent=2))
+        (self.output_dir / 'music' / 'meta.json').write_text(json.dumps(result, ensure_ascii=False, indent=2))
 
 class TrashCheck(Action):
     def __init__(self):
@@ -217,7 +218,7 @@ def main():
     VideoClipper('TWITTER', 'https://www.twitter.com/i/status/{}', 'best[ext=mp4]', 'mp4', 'm4a').process(items)
     VideoClipper('BILIBILI', 'https://www.bilibili.com/video/{}', 'best[ext=flv]', 'flv', 'm4a').process(items)
 
-    JsonRender('https://suisei.moe/music/{}.m4a').process(list(items))
+    JsonRender('https://static.suisei.moe/music/{}.m4a').process(list(items))
 
     TrashCheck().process(items)
 
