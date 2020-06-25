@@ -126,6 +126,9 @@ class VideoClipper(Action):
         source_path = self.source_dir / f'{item.video_id}.{self.source_ext}'
         output_path = self.output_dir / f'{item.hash}.{self.output_ext}'
 
+        if not item.video_id:
+            return
+
         if not source_path.exists():
             self.logger.info(f'download {source_path}')
             cmd = [
