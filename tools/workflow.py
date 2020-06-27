@@ -117,7 +117,7 @@ class VideoClipper(Action):
         self.source_ext = source_ext
         self.output_ext = output_ext
         self.source_dir = Path(os.getenv('SOURCE_DIR'))
-        self.output_dir = Path(os.getenv('OUTPUT_DIR')) / 'music'
+        self.output_dir = Path(os.getenv('OUTPUT_DIR'))
 
     def filter(self, item):
         return item.video_type == self.video_type
@@ -193,7 +193,6 @@ class JsonRender(Action):
             })
 
         (self.output_dir / 'meta.json').write_text(json.dumps(result, ensure_ascii=False, indent=2))
-        (self.output_dir / 'music' / 'meta.json').write_text(json.dumps(result, ensure_ascii=False, indent=2))
 
 class TrashCheck(Action):
     def __init__(self):
@@ -202,7 +201,7 @@ class TrashCheck(Action):
 
     def process(self, items):
         result = set(map(lambda x: x.hash, items))
-        for i in (self.output_dir / 'music').iterdir():
+        for i in (self.output_dir).iterdir():
             if i.stem not in result:
                 print(f'outdated file {i}')
 
