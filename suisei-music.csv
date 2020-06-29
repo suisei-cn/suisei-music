@@ -16,6 +16,7 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2019-02-14T02:12+09:00,YOUTUBE,-uQ4bc7otx8,,,0,バレンタイン・キッス,国生さゆり,"久遠藍,星街すいせい,黒羽満月,ルピナス・ナイトリー",
 2019-03-22T19:58+09:00,YOUTUBE,zLak0dxBKpM,,,0,天球、彗星は夜を跨いで,星街すいせい,星街すいせい,
 2019-06-05T07:09+09:00,TWITTER,1136032336414330880,,,0,夢町コントラスト,電ポルP,星街すいせい,
+2019-06-10T20:00+09:00,YOUTUBE,1768lvpfxRI,,,,,,,
 2019-06-22T21:11+09:00,TWITTER,1142404825310584834,,,0,Leia,ゆよゆっぺ,星街すいせい,
 2019-07-07T16:11+09:00,YOUTUBE,C9ZZr-pbBMg,286.1,519.8,0,撲殺天使ドクロちゃん,千葉紗子,"猫又おかゆ,戌神ころね,星街すいせい,友人A",
 2019-07-07T16:11+09:00,YOUTUBE,C9ZZr-pbBMg,1056.5,1263.3,0,ロックンロ一ルなんですの,supercell,星街すいせい,
@@ -351,8 +352,8 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2020-04-04T21:01+09:00,YOUTUBE,IRr6aAS3zLQ,2608.5,2842.9,0,愛を伝えたいだとか,あいみょん,星街すいせい,
 2020-04-04T21:01+09:00,YOUTUBE,IRr6aAS3zLQ,2901.4,3120.1,0,Knights the Phantom Thief,Knights,星街すいせい,
 2020-04-04T21:01+09:00,YOUTUBE,IRr6aAS3zLQ,3179.8,3422.0,0,だから僕は音楽を辞めた,ヨルシカ,星街すいせい,
-2020-04-12T17:00+09:00,YOUTUBE,mW69UH5bGuc,,,0,丸の内サディスティック,椎名林檎,星街すいせい,"YOUTUBE,GC0y5emudEc,417.0,649.0"
-2020-04-12T17:12+09:00,YOUTUBE,zEAe9D3A9G0,,,0,やさしさに包まれたなら,松任谷由実,"星街すいせい,夏色まつり","YOUTUBE,Si6Pa_9Fo20,620.2,824"
+2020-04-12T17:07+09:00,YOUTUBE,mW69UH5bGuc,,,0,丸の内サディスティック,椎名林檎,星街すいせい,"YOUTUBE,GC0y5emudEc,434.5,649.0"
+2020-04-12T17:22+09:00,YOUTUBE,zEAe9D3A9G0,,,0,やさしさに包まれたなら,松任谷由実,"星街すいせい,夏色まつり","YOUTUBE,Si6Pa_9Fo20,620.2,824"
 2020-04-15T21:02+09:00,YOUTUBE,LyyvAhTt_I4,138.0,329.0,0,アフターダーク,ASIAN KUNG-FU GENERATION,星街すいせい,
 2020-04-15T21:02+09:00,YOUTUBE,LyyvAhTt_I4,334.4,594.7,0,ALONES,Aqua Timez,星街すいせい,
 2020-04-15T21:02+09:00,YOUTUBE,LyyvAhTt_I4,600.5,825.2,0,リライト,ASIAN KUNG-FU GENERATION,星街すいせい,
@@ -365,8 +366,8 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2020-04-15T21:02+09:00,YOUTUBE,LyyvAhTt_I4,2607.2,2882.8,0,宿命,Official髭男dism,星街すいせい,
 2020-04-15T21:02+09:00,YOUTUBE,LyyvAhTt_I4,2887.2,3148.2,0,ないものねだり,KANA-BOON,星街すいせい,
 2020-04-15T21:02+09:00,YOUTUBE,LyyvAhTt_I4,3160.4,3396.0,0,シルエット,KANA-BOON,星街すいせい,
-2020-04-19T17:00+09:00,YOUTUBE,0gjwTnryqII,,,0,君の知らない物語,supercell,"星街すいせい,夏色まつり","YOUTUBE,hi3_fWJOjbU,425.0,759.8"
-2020-04-19T17:12+09:00,YOUTUBE,UzWdBvjkTsA,,,0,変わらないもの,奥華子,"星街すいせい,夏色まつり","YOUTUBE,rUr2pgn9Icg,470.9,745.9"
+2020-04-19T17:07+09:00,YOUTUBE,0gjwTnryqII,,,0,君の知らない物語,supercell,"星街すいせい,夏色まつり","YOUTUBE,hi3_fWJOjbU,425.0,759.8"
+2020-04-19T17:20+09:00,YOUTUBE,UzWdBvjkTsA,,,0,変わらないもの,奥華子,"星街すいせい,夏色まつり","YOUTUBE,rUr2pgn9Icg,470.9,745.9"
 2020-04-21T19:16+09:00,YOUTUBE,Nc3KBd5eCrI,118.3,341.2,0,いのちの名前,木村弓,星街すいせい,
 2020-04-21T19:16+09:00,YOUTUBE,Nc3KBd5eCrI,366.4,685.5,0,"rain stops, good-bye",におP,星街すいせい,
 2020-04-21T19:16+09:00,YOUTUBE,Nc3KBd5eCrI,743.5,1010.2,0,夕立のりぼん,みきとP,星街すいせい,
@@ -555,6 +556,7 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2020-06-17T18:57+09:00,YOUTUBE,KKwm8FQmHPw,5835.1,6076.1,0,FuwaMoko→LIFE!,もこ田めめめ,"星街すいせい,もこ田めめめ,花鋏キョウ",
 2020-06-17T18:57+09:00,YOUTUBE,KKwm8FQmHPw,6086.7,6278.2,0,蒼に躊躇う,花鋏キョウ,"星街すいせい,もこ田めめめ,花鋏キョウ",
 2020-06-20T20:58+09:00,YOUTUBE,APN3rNzfNnw,1517.4,1856.8,0,君の知らない物語,supercell,"夏色まつり,星街すいせい",
+2020-06-21T17:21+09:00,YOUTUBE,Larp5AeS1n0,,,0,いただきます,ひま食堂,"星街すいせい,ひま食堂","YOUTUBE,ADPxcfOTlbE,182.7,405.6"
 2020-06-22T17:10+09:00,TWITTER,1274978034576048129,,,1,それがあなたの幸せとしても,Heavenz,星街すいせい,
 2020-06-25T18:47+09:00,TWITTER,1276089611052171264,,,1,紅蓮華,LiSA,星街すいせい,
 2020-06-25T20:57+09:00,BILIBILI,BV1iV411k7jw,730.0,954.3,0,乱舞のメロディ,シド,星街すいせい,
@@ -563,4 +565,13 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2020-06-25T20:57+09:00,BILIBILI,BV1iV411k7jw,3014.8,3250.5,0,シルエット,KANA-BOON,星街すいせい,
 2020-06-25T20:57+09:00,BILIBILI,BV1iV411k7jw,3328.5,3583.3,0,"NO, Thank You!",秋山澪,星街すいせい,
 2020-06-26T19:26+09:00,TWITTER,1276461774083026944,,,1,UNSTOPPABLE,RAISE A SUILEN,星街すいせい,
+2020-06-28T17:00+09:00,YOUTUBE,0QCwa98NVq4,,,0,NEXT COLOR PLANET,星街すいせい,"星街すいせい,ひま食堂",TODO
+2020-06-28T17:01+09:00,YOUTUBE,RjGLbR6t1uw,,,0,小さな恋のうた,MONGOL800,"星街すいせい,ひま食堂",TODO
+2020-06-28T17:02+09:00,YOUTUBE,ePzIAlfHkso,,,0,光るなら,Goose house,"星街すいせい,ひま食堂",TODO
 2020-06-28T22:00+09:00,YOUTUBE,HkMXq08WlJo,,,0,シャンパーニュ・デイ,ナナホシ管弦楽団,星街すいせい,
+2020-06-29T22:01+09:00,YOUTUBE,N4Op5gpV2AU,134.2,380.7,0,思想犯,ヨルシカ,星街すいせい,
+2020-06-29T22:01+09:00,YOUTUBE,N4Op5gpV2AU,575.1,790.5,0,春ひさぎ,ヨルシカ,星街すいせい,
+2020-06-29T22:01+09:00,YOUTUBE,N4Op5gpV2AU,804.5,1072.9,0,雨とカプチーノ,ヨルシカ,星街すいせい,
+2020-06-29T22:01+09:00,YOUTUBE,N4Op5gpV2AU,1156.9,1410.5,0,秒針を噛む,ずっと真夜中でいいのに。,星街すいせい,
+2020-06-29T22:01+09:00,YOUTUBE,N4Op5gpV2AU,1439.9,1665.4,0,乱舞のメロディ,シド,星街すいせい,
+2020-06-29T22:01+09:00,YOUTUBE,N4Op5gpV2AU,1750.5,2043.4,0,餞の鳥,D/Zeal,星街すいせい,
