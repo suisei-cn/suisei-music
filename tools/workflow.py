@@ -88,6 +88,7 @@ class MetadataLinter(Action):
         if item.title in self.music_artist:
             if item.artist != self.music_artist[item.title]:
                 self.logger.warning(f'detect inconsistent relationship on {item.title}')
+                input('continue ?')
         else:
             self.music_artist[item.title] = item.artist
 
