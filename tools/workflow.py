@@ -106,6 +106,7 @@ class TypoCheck(Action):
             for t in self.cache:
                 if Levenshtein.ratio(t, i) > 0.75:
                     self.logger.warning(f'detect similar metadata {t} & {i} on {self.cache[t]} & {item}')
+                    input('continue ?')
 
             self.cache[i] = item
 
