@@ -612,7 +612,7 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2020-06-17T18:57+09:00,YOUTUBE,KKwm8FQmHPw,2865.6,3133.3,0,雨とカプチーノ,ヨルシカ,"星街すいせい,もこ田めめめ,花鋏キョウ",
 2020-06-17T18:57+09:00,YOUTUBE,KKwm8FQmHPw,3152.5,3397.8,0,夜に駆ける,YOASOBI,"星街すいせい,もこ田めめめ,花鋏キョウ",
 2020-06-17T18:57+09:00,YOUTUBE,KKwm8FQmHPw,3912.8,4115.9,0,群青日和,東京事変,星街すいせい,
-2020-06-17T18:57+09:00,YOUTUBE,KKwm8FQmHPw,5338.8,5540.5,0,星街すいせいのMUSIC SPACEテーマソング,星街すいせい,"星街すいせい,もこ田めめめ,花鋏キョウ",
+2020-06-17T18:57+09:00,YOUTUBE,KKwm8FQmHPw,5338.8,5540.5,0,星街すいせいのMUSIC SPACEテーマソング,星街すいせい,"星街すいせい,もこ田めめめ,花鋏キョウ","YOUTUBE,snM-fzz6hEs"
 2020-06-17T18:57+09:00,YOUTUBE,KKwm8FQmHPw,5558.2,5818.2,0,NEXT COLOR PLANET,星街すいせい,"星街すいせい,もこ田めめめ,花鋏キョウ",
 2020-06-17T18:57+09:00,YOUTUBE,KKwm8FQmHPw,5835.1,6076.1,0,FuwaMoko→LIFE!,もこ田めめめ,"星街すいせい,もこ田めめめ,花鋏キョウ",
 2020-06-17T18:57+09:00,YOUTUBE,KKwm8FQmHPw,6086.7,6278.2,0,蒼に躊躇う,花鋏キョウ,"星街すいせい,もこ田めめめ,花鋏キョウ",
@@ -698,6 +698,8 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2020-07-12T17:09+09:00,YOUTUBE,_TZeYwMRJas,,,0,明日への手紙,手嶌葵,"星街すいせい,燦鳥ノム","YOUTUBE,3p1VvC89r2s,543.0,833.8"
 2020-07-12T17:20+09:00,YOUTUBE,1uQmxfAL6IM,,,0,I LOVE YOU,クリス・ハート,"星街すいせい,燦鳥ノム","YOUTUBE,izfIMMf9H34,343.6,657.6"
 2020-07-17T20:00+09:00,YOUTUBE,a9EZ2KFTbYM,,,0,アライブファクター,"如月千早,最上静香","朝ノ瑠璃,星街すいせい",
+2020-07-19T17:14+09:00,YOUTUBE,jPgdUu0KdvY,,,0,Pretender,Official髭男dism,"星街すいせい,もこ田めめめ","YOUTUBE,3sFkYxMlb8k,156.0,477.6"
+2020-07-19T17:20+09:00,YOUTUBE,g6am0OtBlgc,,,0,夜に駆ける,YOASOBI,"星街すいせい,もこ田めめめ","YOUTUBE,3sFkYxMlb8k,533.0,781.8"
 2020-07-21T22:02+09:00,YOUTUBE,cGyPdVUaPdI,148.3,410.0,0,飛行艇,King Gnu,星街すいせい,
 2020-07-21T22:02+09:00,YOUTUBE,cGyPdVUaPdI,422.4,655.5,0,紅蓮華,LiSA,星街すいせい,
 2020-07-21T22:02+09:00,YOUTUBE,cGyPdVUaPdI,800.1,1113.2,0,名前のない怪物,EGOIST,星街すいせい,
@@ -720,3 +722,9 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2020-07-24T21:01+09:00,BILIBILI,BV1Pk4y1m7ht,3276.8,3509.1,0,紅蓮華,LiSA,星街すいせい,
 2020-07-25T17:02+09:00,BILIBILI,BV1ki4y137kQ?p=3,1281.0,1480.0,0,喵喵Disco,BML,"猫天天,泠鸢yousa,hanser,琉绮Ruki,进击的冰糖,星街すいせい",
 2020-07-25T20:29+09:00,BILIBILI,BV1xf4y1R7RT,36.5,317.0,0,Pieces,星街すいせい,星街すいせい,
+2020-07-26T17:15+09:00,YOUTUBE,CtBqT4gnCjo,,,0,Gaze and Gaze,THE IDOLM@STER CINDERELLA GIRLS!!,"星街すいせい,もこ田めめめ","YOUTUBE,4OySGUAD7PA,92.7,319.1"
+2020-07-26T17:20+09:00,YOUTUBE,eE_ZyuTsab0,,,0,餞の鳥,D/Zeal,"星街すいせい,もこ田めめめ","YOUTUBE,4OySGUAD7PA,395.5,675.4"
+2020-07-30T19:00+09:00,YOUTUBE,5yDNEmcKQFY,,,0,餞の鳥,D/Zeal,"星街すいせい,ときのそら",
+2020-08-02T17:00+09:00,YOUTUBE,-ugKPaaWbZ8,,,,Tryst of Stars,fine,"星街すいせい,戌亥とこ",
+2020-08-02T17:00+09:00,YOUTUBE,dgOe9gVype0,,,,花に亡霊,ヨルシカ,"星街すいせい,戌亥とこ",
+2020-08-04T23:47+09:00,YOUTUBE,-cWxSCiPKk4,,,,,,,
