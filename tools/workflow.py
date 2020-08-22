@@ -139,7 +139,7 @@ class VideoClipper(Action):
                 '-o', str(source_path),
                 self.url_template.format(item.video_id),
             ]
-            subprocess.run(cmd, check=True, capture_output=True)
+            subprocess.run(cmd, check=False, capture_output=True)
 
         if item.status and not output_path.exists():
             self.logger.info(f'clip {output_path} for {item}')
