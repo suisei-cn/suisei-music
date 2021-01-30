@@ -8,6 +8,7 @@ import csv
 import logging
 import os
 import subprocess
+import sys
 import json
 import xxhash
 import Levenshtein
@@ -118,6 +119,7 @@ class VideoClipper(Action):
         self.format_code = format_code
         self.source_ext = source_ext
         self.output_ext = output_ext
+        self.blacklisted_videoids = []
         self.source_dir = Path(os.getenv('SOURCE_DIR'))
         self.output_dir = Path(os.getenv('OUTPUT_DIR'))
 
@@ -131,6 +133,16 @@ class VideoClipper(Action):
         if not item.video_id:
             return
 
+        if output_path.exists():
+            self.logger.debug(f'{output_path} is found, skipping.')
+            return
+
+        if item.video_id in self.blacklisted_videoids:
+            self.logger.info(f'{output_path} skipped because we failed to fetch the source ({item.video_id}).')
+            return
+
+        download_finished = True
+
         if not source_path.exists():
             self.logger.info(f'download {source_path}')
             cmd = [
@@ -139,7 +151,20 @@ class VideoClipper(Action):
                 '-o', str(source_path),
                 self.url_template.format(item.video_id),
             ]
-            subprocess.run(cmd, check=False, capture_output=True)
+            try:
+                subprocess.run(cmd, check=True, capture_output=True)
+            except subprocess.CalledProcessError as e:
+                self.logger.error(f'Error fetching {item.video_id}, skipping.')
+                self.logger.error("Logs:\n" + e.output.decode())
+                self.blacklisted_videoids.append(item.video_id)
+                download_finished = False
+        else:
+            self.logger.debug(f'{source_path} is found, skipping.')
+
+        if not download_finished:
+            self.logger.info(f'Download of {source_path} is not finished, clipping skipped.')
+            self.logger.info(f'Clipping of {output_path} failed because of download problems.')
+            return
 
         if item.status and not output_path.exists():
             self.logger.info(f'clip {output_path} for {item}')
