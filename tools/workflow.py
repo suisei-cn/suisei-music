@@ -247,7 +247,7 @@ def main():
     VideoClipper('TWITTER', 'https://www.twitter.com/i/status/{}', 'best[ext=mp4]', 'mp4', 'm4a').process(items)
     VideoClipper('BILIBILI', 'https://www.bilibili.com/video/{}', 'best[ext=flv]', 'flv', 'm4a').process(items)
 
-    JsonRender('https://static.suisei.moe/music/{}.m4a').process(list(items))
+    JsonRender('https://suisei-podcast.outv.im/{}.m4a').process(list(items))
 
     TrashCheck().process(items)
 
