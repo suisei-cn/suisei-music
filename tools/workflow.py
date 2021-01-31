@@ -4,6 +4,7 @@
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from pathlib import Path
+import argparse
 import csv
 import logging
 import os
@@ -18,6 +19,18 @@ logging.basicConfig(
     format = '%(asctime)s %(name)s %(levelname)s - %(message)s',
 )
 load_dotenv()
+
+def get_args():
+    parser = argparse.ArgumentParser(description='Helper script for suisei-music.',
+                                     allow_abbrev=False)
+    parser.add_argument('--check-only','-c' , action='store_true',
+                                       help='only check for typos')
+    parser.add_argument('--noconfirm', action='store_true',
+                                       help='never ask for interarctive action')
+    return parser.parse_args()
+
+args = get_args()
+wrapped_input = (lambda _:False) if args.noconfirm else input
 
 class Music(object):
     __slots__ = [
@@ -89,7 +102,7 @@ class MetadataLinter(Action):
         if item.title in self.music_artist:
             if item.artist != self.music_artist[item.title]:
                 self.logger.warning(f'detect inconsistent relationship on {item.title}')
-                input('continue ?')
+                wrapped_input('continue ?')
         else:
             self.music_artist[item.title] = item.artist
 
@@ -107,7 +120,7 @@ class TypoCheck(Action):
             for t in self.cache:
                 if Levenshtein.ratio(t, i) > 0.75:
                     self.logger.warning(f'detect similar metadata {t} & {i} on {self.cache[t]} & {item}')
-                    input('continue ?')
+                    wrapped_input('continue ?')
 
             self.cache[i] = item
 
@@ -242,6 +255,9 @@ def main():
     TypoCheck(lambda x: [x.title]).process(items)
     TypoCheck(lambda x: x.artist.split(',')).process(items)
     TypoCheck(lambda x: x.performer.split(',')).process(items)
+
+    if args.check_only:
+        return
 
     VideoClipper('YOUTUBE', 'https://www.youtube.com/watch?v={}', 'bestaudio[ext=m4a]', 'mp4', 'm4a').process(items)
     VideoClipper('TWITTER', 'https://www.twitter.com/i/status/{}', 'best[ext=mp4]', 'mp4', 'm4a').process(items)
