@@ -107,6 +107,10 @@ class VideoClipper(Action):
         source_path = self.source_dir / f'{item.video_id}.{self.source_ext}'
         output_path = self.output_dir / f'{item.hash}.{self.output_ext}'
 
+        if item.status and (int(item.status) & 8 > 0):
+            self.logger.info(f'Source of {output_path} ({item.video_id}) is member-only, skipping.')
+            return
+
         if not item.video_id:
             return
 
