@@ -59,6 +59,10 @@ class MetadataLinter(Action):
             self.logger.error(f'detect whitespace in metadata on {item}')
             raise RuntimeError('metadata format check failed')
 
+        if item.clip_start and item.clip_end and float(item.clip_start) > float(item.clip_end):
+            self.logger.error(f'detect bad clip timing on {item}')
+            raise RuntimeError('metadata timing check failed')
+
         if item.title in self.music_artist:
             if item.artist != self.music_artist[item.title]:
                 self.logger.warning(f'detect inconsistent relationship on {item.title}')
