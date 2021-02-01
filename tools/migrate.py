@@ -46,8 +46,8 @@ def main():
         console.error('No staged/unstaged/HEAD~1 diff of suisei-music.csv found, exiting.')
         return
     console.debug('Diff found. Extracing...')
-    old_data = diff.a_blob.data_stream.read().decode().split('\n')
-    new_data = diff.b_blob.data_stream.read().decode().split('\n')
+    new_data = diff.a_blob.data_stream.read().decode().split('\n')
+    old_data = diff.b_blob.data_stream.read().decode().split('\n')
     smdiff = difflib.SequenceMatcher(None, old_data, new_data)
     lines_to_remove = []
     lines_to_add = []
