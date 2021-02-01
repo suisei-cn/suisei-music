@@ -20,19 +20,21 @@ def get_filenames(header, lines):
     musics = map(Music, csv.DictReader(filelike))
     return list(map(lambda x: [f'{x.video_type}:{x.video_id}@{x.clip_start}', x.hash], musics))
 
-def pick_suisei_diff(diff):
+def pick_suisei_diff(diff, desc):
     csv_diff = list(filter(lambda x: x.a_path == 'suisei-music.csv', diff))
     if len(csv_diff) < 1:
         return None
+    console.info(f'Picking diff for {desc}')
     return csv_diff[0]
 
 def main():
     csv_header = open('../suisei-music.csv', encoding='utf-8').read().split('\n')[0]
     repo = Repo("../")
-    # starged changes OR unstaged changes
-    diff = pick_suisei_diff(repo.index.diff('HEAD')) or pick_suisei_diff(repo.index.diff(None))
+    diff = pick_suisei_diff(repo.index.diff('HEAD'), 'staged') \
+        or pick_suisei_diff(repo.index.diff(None), 'unstaged') \
+        or pick_suisei_diff(repo.head.commit.diff('HEAD~1'), 'last commit')
     if diff is None:
-        console.error('No staged/unstaged diff of suisei-music.csv found, exiting.')
+        console.error('No staged/unstaged/HEAD~1 diff of suisei-music.csv found, exiting.')
         return
     console.debug('Diff found. Extracing...')
     old_data = diff.a_blob.data_stream.read().decode().split('\n')
