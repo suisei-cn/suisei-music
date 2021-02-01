@@ -28,6 +28,7 @@ def get_args():
                                        help='only check for typos')
     parser.add_argument('--noconfirm', action='store_true',
                                        help='never ask for interarctive action')
+    parser.add_argument('--save-failed', help='save failed video ids to a file')
     return parser.parse_args()
 
 args = get_args()
@@ -48,6 +49,7 @@ class Action(object):
             self.logger.debug(f'process {item}')
             self.effect(item)
             self.logger.debug(f'finish {item}')
+        return self
 
 class MetadataLinter(Action):
     def __init__(self):
@@ -99,6 +101,9 @@ class VideoClipper(Action):
         self.blacklisted_videoids = []
         self.source_dir = Path(os.getenv('SOURCE_DIR'))
         self.output_dir = Path(os.getenv('OUTPUT_DIR'))
+
+    def get_blacklist(self):
+        return list(map(lambda x:f'{self.video_type}:{x}', self.blacklisted_videoids))
 
     def filter(self, item):
         return item.video_type == self.video_type
@@ -227,9 +232,15 @@ def main():
     if args.check_only:
         return
 
-    VideoClipper('YOUTUBE', 'https://www.youtube.com/watch?v={}', 'bestaudio[ext=m4a]', 'mp4', 'm4a').process(items)
-    VideoClipper('TWITTER', 'https://www.twitter.com/i/status/{}', 'best[ext=mp4]', 'mp4', 'm4a').process(items)
-    VideoClipper('BILIBILI', 'https://www.bilibili.com/video/{}', 'best[ext=flv]', 'flv', 'm4a').process(items)
+    failed_videos = []
+
+    failed_videos.extend(VideoClipper('YOUTUBE', 'https://www.youtube.com/watch?v={}', 'bestaudio[ext=m4a]', 'mp4', 'm4a').process(items).get_blacklist())
+    failed_videos.extend(VideoClipper('TWITTER', 'https://www.twitter.com/i/status/{}', 'best[ext=mp4]', 'mp4', 'm4a').process(items).get_blacklist())
+    failed_videos.extend(VideoClipper('BILIBILI', 'https://www.bilibili.com/video/{}', 'best[ext=flv]', 'flv', 'm4a').process(items).get_blacklist())\
+    
+    if args.save_failed:
+        with open(args.save_failed, 'w') as f:
+            f.write('\n'.join(failed_videos))
 
     JsonRender('https://suisei-podcast.outv.im/{}.m4a').process(list(items))
 
