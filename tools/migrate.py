@@ -8,6 +8,7 @@ import logging
 from io import StringIO
 
 AUDIO_FORMAT = 'm4a'
+DIFF_RANGE = 5
 
 logging.basicConfig(
     level = logging.INFO,
@@ -27,12 +28,20 @@ def pick_suisei_diff(diff, desc):
     console.info(f'Picking diff for {desc}')
     return csv_diff[0]
 
+def find_suisei_diff_on_log(repo):
+    for i in range(1, DIFF_RANGE):
+        name = f'HEAD~{i}'
+        diff = pick_suisei_diff(repo.head.commit.diff(name), name)
+        if diff is not None:
+            return diff
+    return None
+
 def main():
     csv_header = open('../suisei-music.csv', encoding='utf-8').read().split('\n')[0]
     repo = Repo("../")
     diff = pick_suisei_diff(repo.index.diff('HEAD'), 'staged') \
         or pick_suisei_diff(repo.index.diff(None), 'unstaged') \
-        or pick_suisei_diff(repo.head.commit.diff('HEAD~1'), 'last commit')
+        or find_suisei_diff_on_log(repo)
     if diff is None:
         console.error('No staged/unstaged/HEAD~1 diff of suisei-music.csv found, exiting.')
         return
