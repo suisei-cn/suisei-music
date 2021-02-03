@@ -33,4 +33,4 @@ jobs:
     steps:
       - name: Invoke remote
         run: |
-          curl "https://suisei-podcast.outv.im/rpc?key=${{ secrets.BIN_API_KEY }}&reason=gh_${{ github.sha }}&delay=1&action=fetch_clip"
+          curl -XPOST "https://suisei-podcast.outv.im/rpc?key=${{ secrets.BIN_API_KEY }}&reason=gh_${{ github.sha }}&delay=1&action=fetch_clip"
