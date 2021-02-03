@@ -3,7 +3,7 @@ name: Validate
 on: [push, pull_request]
 
 jobs:
-  build:
+  validate:
     if: "(!contains(github.event.commits[0].message, '[skip ci]')) && (!contains(github.event.commits[0].message, '[ci skip]'))"
     runs-on: ubuntu-latest
     steps:
@@ -25,3 +25,12 @@ jobs:
         run: |
           cd tools
           python workflow.py -c --noconfirm
+
+  deploy:
+    if: github.event_name == 'push'
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Invoke remote
+        run: |
+          curl "https://suisei-podcast.outv.im/rpc?key=${{ secrets.BIN_API_KEY }}&reason=gh_${{ github.sha }}&delay=1&action=fetch_clip"
