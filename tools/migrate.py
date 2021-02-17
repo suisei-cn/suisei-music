@@ -1,25 +1,32 @@
 from mod import Music
 
+from dotenv import load_dotenv
 from git import Repo
 
 import csv
 import difflib
 import logging
+import os
 from io import StringIO
+from pathlib import Path
 
+load_dotenv()
 AUDIO_FORMAT = 'm4a'
 DIFF_RANGE = 5
+OUTPUT_DIR = Path(os.getenv('OUTPUT_DIR'))
 
 logging.basicConfig(
-    level = logging.INFO,
-    format = '%(asctime)s %(name)s %(levelname)s - %(message)s',
+    level=logging.INFO,
+    format='%(asctime)s %(name)s %(levelname)s - %(message)s',
 )
 console = logging.getLogger('migrate')
+
 
 def get_filenames(header, lines):
     filelike = StringIO(header + "\n" + "\n".join(lines))
     musics = map(Music, csv.DictReader(filelike))
     return list(map(lambda x: [f'{x.video_type}:{x.video_id}@{x.clip_start}', x.hash], musics))
+
 
 def pick_suisei_diff(diff, desc):
     csv_diff = list(filter(lambda x: x.a_path == 'suisei-music.csv', diff))
@@ -27,6 +34,7 @@ def pick_suisei_diff(diff, desc):
         return None
     console.info(f'Picking diff for {desc}')
     return csv_diff[0]
+
 
 def find_suisei_diff_on_log(repo):
     for i in range(1, DIFF_RANGE):
@@ -36,14 +44,16 @@ def find_suisei_diff_on_log(repo):
             return diff
     return None
 
-def main():
-    csv_header = open('../suisei-music.csv', encoding='utf-8').read().split('\n')[0]
+
+def get_diff():
+    csv_header = open('../suisei-music.csv',
+                      encoding='utf-8').read().split('\n')[0]
     repo = Repo("../")
-    diff = pick_suisei_diff(repo.index.diff('HEAD'), 'staged') \
-        or pick_suisei_diff(repo.index.diff(None), 'unstaged') \
-        or find_suisei_diff_on_log(repo)
+    diff = pick_suisei_diff(repo.index.diff(
+        'HEAD'), 'staged') or find_suisei_diff_on_log(repo)
     if diff is None:
-        console.error('No staged/unstaged/HEAD~1 diff of suisei-music.csv found, exiting.')
+        console.error(
+            'No staged/unstaged/HEAD~1 diff of suisei-music.csv found, exiting.')
         return
     console.debug('Diff found. Extracing...')
     new_data = diff.a_blob.data_stream.read().decode().split('\n')
@@ -73,15 +83,24 @@ def main():
                 final[identifier] = [final[identifier][0], filename]
         else:
             final[identifier] = [None, filename]
-    console.info('Proposed migration plans:')
+    return final
+
+
+def main():
+    final = get_diff()
     for [key, [src, dst]] in final.items():
-        if src is None:
-            print(f"DELETE {dst}.{AUDIO_FORMAT} ({key})")
-        elif dst is None:
-            print(f"CREATE {src}.{AUDIO_FORMAT} ({key})")
-        else:
-            print(f"RENAME {src}.{AUDIO_FORMAT} -> {dst}.{AUDIO_FORMAT} ({key})")
-    
+        if src is not None and dst is not None:
+            source = f'{src}.{AUDIO_FORMAT}'
+            destin = f'{dst}.{AUDIO_FORMAT}'
+            print(f"Renaming {source} -> {destin} ({key})")
+            if (OUTPUT_DIR / destin).exists():
+                print(
+                    f'{destin} is found, skipping. Please check if it is what you want.')
+            elif not (OUTPUT_DIR / source).exists():
+                print(f'{source} is not found, skipping.')
+            else:
+                os.rename(OUTPUT_DIR / source, OUTPUT_DIR / destin)
+
 
 if __name__ == '__main__':
     main()
