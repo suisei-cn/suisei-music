@@ -6,6 +6,7 @@ from mod import Music
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from pathlib import Path
+from time import sleep
 import argparse
 import csv
 import logging
@@ -110,6 +111,7 @@ class VideoClipper(Action):
 
     def effect(self, item):
         source_path = self.source_dir / f'{item.video_id}.{self.source_ext}'
+        source_part_path = Path(f'{source_path}.part')
         output_path = self.output_dir / f'{item.hash}.{self.output_ext}'
 
         if item.status and (int(item.status) & 8 > 0):
@@ -128,6 +130,10 @@ class VideoClipper(Action):
             return
 
         download_finished = True
+
+        while source_part_path.exists():
+            self.logger.info(f"{source_part_path} is downloading. Waiting for 15 seconds and recheck.")
+            sleep(15)
 
         if not source_path.exists():
             self.logger.info(f'download {source_path}')
