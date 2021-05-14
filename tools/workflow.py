@@ -164,6 +164,7 @@ class VideoClipper(Action):
                 'ffmpeg',
                 '-i', str(source_path),
                 '-acodec', 'copy',
+                '-movflags', 'faststart',
                 '-metadata', f'title={item.title} / {item.artist}',
                 '-metadata', f'artist={item.performer}',
                 '-vn',
