@@ -821,7 +821,7 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2020-10-31T20:00+09:00,YOUTUBE,vhmFj1owmuk,,,0,今宵月の館にて,Valkyrie,"戌亥とこ,星街すいせい",
 2020-11-01T17:00+09:00,YOUTUBE,gRT9xb0fN-s,,,0,ライオン,"May'n,中島愛","星街すいせい,湊あくあ",
 2020-11-01T17:00+09:00,YOUTUBE,YNwsS69DTCo,,,0,宿命,Official髭男dism,"星街すいせい,湊あくあ",
-2020-11-01T20:15+09:00,YOUTUBE,yk51RdzaMUE,,,,月陽-ツキアカリ-,みきとP,"星街すいせい,天音かなた",
+2020-11-01T20:15+09:00,YOUTUBE,yk51RdzaMUE,,,0,月陽-ツキアカリ-,みきとP,"星街すいせい,天音かなた",
 2020-11-01T22:00+09:00,YOUTUBE,Y-vdjbxp3IM,137.00,370.70,0,月陽-ツキアカリ-,みきとP,"星街すいせい,天音かなた",
 2020-11-01T22:00+09:00,YOUTUBE,Y-vdjbxp3IM,509.50,776.20,0,NEXT COLOR PLANET,星街すいせい,"星街すいせい,天音かなた",
 2020-11-01T22:00+09:00,YOUTUBE,Y-vdjbxp3IM,876.00,1105.80,0,アリスインニューヨーク,ひとしずくP,"星街すいせい,天音かなた",
@@ -1191,6 +1191,6 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2021-07-01T22:10+09:00,YOUTUBE,-ryG_yoUFno,1445,1703,0,Acacia,BUMP OF CHICKEN,星街すいせい,
 2021-07-01T22:10+09:00,YOUTUBE,-ryG_yoUFno,1733,2007,0,TAO,Do As Infinity,星街すいせい,
 2021-07-01T22:10+09:00,YOUTUBE,-ryG_yoUFno,2098,2356,0,Happiness,ARASHI,星街すいせい,
-2021-07-01T22:10+09:00,YOUTUBE,-ryG_yoUFno,2432,2683,0,特攻DANCE ~DAWN OF THE BAD~,フランシュシュ,星街すいせい,
+2021-07-01T22:10+09:00,YOUTUBE,-ryG_yoUFno,2432,2683,0,特攻DANCE ~DAWN OF THE BAD~,,星街すいせい,
 2021-06-26T15:00+09:00,YOUTUBE,,,,,,,星街すいせい,
 T18:00+09:00,YOUTUBE,GDzul6mTpV8,,,,クレイジークレイジー,"レイジー・レイジー,宮本フレデリカ,一ノ瀬志希","星街すいせい,花鋏キョウ",***
