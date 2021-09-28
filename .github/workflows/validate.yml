@@ -27,7 +27,7 @@ jobs:
           python workflow.py -c --noconfirm
 
   deploy:
-    if: github.event_name == 'push'
+    if: "github.event_name == 'push' && github.ref == 'refs/heads/master'"
     needs: validate
     runs-on: ubuntu-latest
     steps:
