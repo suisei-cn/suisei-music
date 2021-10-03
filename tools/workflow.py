@@ -14,6 +14,7 @@ import os
 import subprocess
 import sys
 import json
+import unicodedata
 import Levenshtein
 
 logging.basicConfig(
@@ -61,6 +62,13 @@ class MetadataLinter(Action):
         if any(map(lambda x: x.strip() != x, [item.title, item.artist, item.performer])):
             self.logger.error(f'detect whitespace in metadata on {item}')
             raise RuntimeError('metadata format check failed')
+
+        if any(map(lambda x: unicodedata.normalize("NFC", x) != x, [item.title, item.artist, item.performer])):
+            self.logger.error(f'detect non-NFC unicode on {item}')
+            for i in [item.title, item.artist, item.performer]:
+                if unicodedata.normalize("NFC", i) != i:
+                    self.logger.error(f'please relace "{i}" with "{unicodedata.normalize("NFC", i)}"')
+            raise RuntimeError('metadata unicode-safety check failed')
 
         if item.clip_start and item.clip_end and float(item.clip_start) > float(item.clip_end):
             self.logger.error(f'detect bad clip timing on {item}')
