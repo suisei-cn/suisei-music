@@ -262,4 +262,5 @@ def main():
     TrashCheck().process(items)
 
 if __name__ == '__main__':
+    logging.getLogger().warning("workflow.py has been deprecated. Please use SuiMu: https://github.com/suisei-cn/suimu")
     main()
