@@ -18,11 +18,7 @@ A project collecting all music performed by [Hoshimati Suisei](https://www.holol
 
 ## Tools
 
-**workflow.py** is a helper script that:
-
-1. check music metadata
-2. download the audio source with the best quality
-3. clip into separate audio file without lossy compression
+[workflow.py](https://github.com/suisei-cn/suisei-music/blob/master/tools/workflow.py) has been deprecated in favor or [SuiMu](https://github.com/suisei-cn/suimu).
 
 ## LICENSE
 
