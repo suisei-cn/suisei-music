@@ -2,29 +2,38 @@ name: Validate
 
 on: [push, pull_request]
 
+permissions: "read-all"
+
 jobs:
   validate:
     if: "(!contains(github.event.commits[0].message, '[skip ci]')) && (!contains(github.event.commits[0].message, '[ci skip]'))"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v2
         with:
           persist-credentials: false
 
-      - name: Setup Python 3 🔧
-        uses: actions/setup-python@v2
+      - name: Check suimu
+        id: check-suimu
+        uses: actions/github-script@v5
         with:
-          python-version: "3.x"
+          script: |
+            let lastRel = await github.rest.repos.getLatestRelease({
+              owner: "suisei-cn",
+              repo: "suimu",
+            })
+            let downloadUrl = lastRel.data.assets.filter(x => x.name === "suimu-Linux").map(x => x.browser_download_url)
+            if (downloadUrl.length === 0) throw Error("No valid suimu-Linux found!")
+            return downloadUrl[0]
 
-      - name: Install dependencies 🔧
+      - name: Download suimu
         run: |
-          pip install -r requirements.txt
+          wget ${{ steps.check-suimu.outputs.result }} -O suimu
+          chmod +x ./suimu
 
-      - name: Check 🔍
-        run: |
-          cd tools
-          python workflow.py -c --noconfirm
+      - name: Check CSV
+        run: ./suimu check ./suisei-music.csv
 
   deploy:
     if: "github.event_name == 'push' && github.ref == 'refs/heads/master'"
