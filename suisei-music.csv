@@ -1289,7 +1289,6 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2021-12-3T21:00+09:00,YOUTUBE,NKQvH78Jv04,,,0,再会,"LiSA,Uru","Moona Hoshinova,星街すいせい",
 2021-12-13T18:00+09:00,YOUTUBE,UXQDUhSr8nU,,,0,シネマ,Ayase,"星街すいせい,奏手イヅル,アステル･レダ",
 2021-12-13T20:00+09:00,YOUTUBE,bn7OaRnM9-A,1295,1524,0,Stardust Song,酒井拓也,"百鬼あやめ,常闇とわ,星街すいせい",
-<<<<<<< HEAD
 2021-12-04T00:00+09:00,YOUTUBE,LOdnaA7IQoU,128.3,339.3,0,バイバイレイニー,星街すいせい,星街すいせい,via "STELLAR into the GALAXY" special movie
 2021-12-04T00:00+09:00,YOUTUBE,LOdnaA7IQoU,635.1,855.6,0,Bluerose,星街すいせい,星街すいせい,via "STELLAR into the GALAXY" special movie
 2021-12-04T00:00+09:00,YOUTUBE,LOdnaA7IQoU,855.2,1063.15,0,Je t'aime。,星街すいせい,星街すいせい,Fade-in from "Bluerose";via "STELLAR into the GALAXY" special movie
@@ -1302,13 +1301,5 @@ datetime,video_type,video_id,clip_start,clip_end,status,title,artist,performer,c
 2021-12-16T22:00+09:00,YOUTUBE,B4vGvN6VDKc,905,1231,0,炉心融解,iroha,星街すいせい,*
 2021-12-16T22:00+09:00,YOUTUBE,B4vGvN6VDKc,1280,1574,0,ネトゲ廃人,さつきがてんこもり,星街すいせい,*
 2021-12-16T22:00+09:00,YOUTUBE,B4vGvN6VDKc,1638,1843,0,阿修羅ちゃん,Ado,星街すいせい,
-=======
-2021-12-04T00:00+09:00,YOUTUBE,LOdnaA7IQoU,128.3,339.3,0,バイバイレイニー,星街すいせい,星街すいせい,"via ""STELLAR into the GALAXY"" special movie"
-2021-12-04T00:00+09:00,YOUTUBE,LOdnaA7IQoU,635.1,855.6,0,Bluerose,星街すいせい,星街すいせい,"via ""STELLAR into the GALAXY"" special movie"
-2021-12-04T00:00+09:00,YOUTUBE,LOdnaA7IQoU,855.2,1063.15,0,Je t'aime。,星街すいせい,星街すいせい,"Fade-in from ""Bluerose"";via ""STELLAR into the GALAXY"" special movie"
-2021-12-04T00:00+09:00,YOUTUBE,LOdnaA7IQoU,1063.36,1295.3,0,自分勝手Dazzling,星街すいせい,星街すいせい,"Fade-in from ""Je t'aime。"";via ""STELLAR into the GALAXY"" special movie"
-2021-12-04T00:00+09:00,YOUTUBE,LOdnaA7IQoU,1300.2,1566,0,comet -Midnight Jazz Arrange-,星街すいせい,星街すいせい,"via ""STELLAR into the GALAXY"" special movie"
-2021-12-04T00:00+09:00,YOUTUBE,LOdnaA7IQoU,1574.3,1765,0,3時12分,"TAKU INOUE,星街すいせい",星街すいせい,"via ""STELLAR into the GALAXY"" special movie"
->>>>>>> bd890f58fbb906600202ecf04bf83863174c8563
 2021-07-26T15:00+09:00,YOUTUBE,,,,,,,星街すいせい,
 1970-01-01T18:00+09:00,YOUTUBE,GDzul6mTpV8,,,,クレイジークレイジー,"レイジー・レイジー,宮本フレデリカ,一ノ瀬志希","星街すいせい,花鋏キョウ",***
