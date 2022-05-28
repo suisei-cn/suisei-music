@@ -40,6 +40,16 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
       - name: Invoke remote
+        env:
+          BIN_API_KEY: ${{ secrets.BIN_API_KEY }}
+          GITHUB_SHA: ${{ github.sha }}
         run: |
-          curl -XPOST "https://suisei-podcast.outv.im/rpc?key=${{ secrets.BIN_API_KEY }}&reason=gh_${{ github.sha }}&delay=1&action=fetch_clip"
+          cd tools
+          npm install got
+          node deploy.mjs
