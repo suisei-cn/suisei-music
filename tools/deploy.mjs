@@ -12,7 +12,7 @@ function sleep(ms) {
 
 function buildSummary(summaryFilePath, result, success) {
   let lines = []
-  lines.push(success ? '✅ Action **SUCCEED**.' : '❌ Action **FAILED**.')
+  lines.push(success ? '✅ Action **SUCCEEDED**.' : '❌ Action **FAILED**.')
   lines.push(['stdout:', '```', result.result.stdout, '```'].join('\n'))
   lines.push(['stderr:', '```', result.result.stderr, '```'].join('\n'))
   writeFileSync(summaryFilePath, lines.join('\n\n'))
