@@ -34,26 +34,3 @@ jobs:
 
       - name: Check CSV
         run: ./suimu check ./suisei-music.csv
-
-  deploy:
-    if: "github.event_name == 'push' && github.ref == 'refs/heads/master'"
-    needs: validate
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-
-      - name: Invoke remote
-        env:
-          BIN_API_KEY: ${{ secrets.BIN_API_KEY }}
-          GITHUB_SHA: ${{ github.sha }}
-        run: |
-          cd tools
-          npm install got
-          node deploy.mjs
